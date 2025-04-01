@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-KeepAwake-90d7ccc4-331c-444b-84d9-6585e95a6369</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.18" />
+    <PackageReference Include="Hangfire.Core" Version="1.8.18" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.20.10" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="9.0.3" />
+  </ItemGroup>
+</Project>
