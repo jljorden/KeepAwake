@@ -21,8 +21,10 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
 
     public void ConfigureJobs()
     {
-        RecurringJobOptions jobOptions = new RecurringJobOptions();
-        jobOptions.TimeZone = TimeZoneInfo.Local;
+        RecurringJobOptions jobOptions = new()
+        {
+            TimeZone = TimeZoneInfo.Local
+        };
 
         RecurringJob.AddOrUpdate(
             "sleep-on-6pm",           // Unique identifier for the job
