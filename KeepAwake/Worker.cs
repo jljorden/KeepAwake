@@ -21,16 +21,21 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
 
     public void ConfigureJobs()
     {
+        RecurringJobOptions jobOptions = new RecurringJobOptions();
+        jobOptions.TimeZone = TimeZoneInfo.Local;
+
         RecurringJob.AddOrUpdate(
             "sleep-on-6pm",           // Unique identifier for the job
             () => TurnSleepOn(),        // Job logic
-            "0 18 * * 1-5"                // Cron expression for Monday-Friday at 6:00 PM
+            "0 18 * * 1-5",
+            jobOptions
         );
 
         RecurringJob.AddOrUpdate(
             "sleep-off-7am",            // Unique identifier for the job
             () => TurnSleepOff(), // Job logic
-            "0 7 * * 1-5"                // Cron expression for Monday-Friday at 7:00 AM
+            "0 7 * * 1-5",
+            jobOptions
         );
     }
 
