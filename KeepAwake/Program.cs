@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace KeepAwake
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {

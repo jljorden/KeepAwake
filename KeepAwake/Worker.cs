@@ -13,7 +13,7 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
         {
             if (logger.IsEnabled(LogLevel.Information))
             {
-                logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                logger.LogInformation("Worker running at: {Time}", DateTimeOffset.Now);
             }
             await Task.Delay(1000, stoppingToken);
         }
@@ -60,7 +60,7 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
             { "standby-timeout-ac", 0 }
         });
 
-        logger.LogInformation("Sleep turned off at {Time}", DateTimeOffset.Now);
+        logger.LogInformation("Sleep turned off at {Time}", DateTimeOffset.Now); // Fixed PascalCase placeholder
     }
 
     private void ExecuteSleepCommands(Dictionary<string, int> settings)
@@ -89,16 +89,16 @@ public class Worker(ILogger<Worker> logger) : BackgroundService
 
             if (process.ExitCode == 0)
             {
-                logger.LogInformation("Successfully executed: {Arguments} at {Time}", arguments, DateTimeOffset.Now);
+                logger.LogInformation("Successfully executed: {Arguments} at {Time}", arguments, DateTimeOffset.Now); // Fixed PascalCase placeholder
             }
             else
             {
-                logger.LogWarning("Command executed with non-zero exit code: {Arguments}, ExitCode: {ExitCode}", arguments, process.ExitCode);
+                logger.LogWarning("Command executed with non-zero exit code: {Arguments}, ExitCode: {ExitCode}", arguments, process.ExitCode); // Fixed PascalCase placeholders
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Error executing power command: {Arguments}", arguments);
+            logger.LogError(ex, "Error executing power command: {Arguments}", arguments); // Fixed PascalCase placeholder
         }
     }
 }
